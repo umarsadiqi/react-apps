@@ -8,11 +8,14 @@ export class PostList extends Component {
         this.props.fetchPosts();
     }
     render() {
+        console.log(this.props.posts);
         return <div>PostList</div>;
     }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+    posts: state.posts,
+});
 
 const mapDispatchToProps = { fetchPosts };
 
