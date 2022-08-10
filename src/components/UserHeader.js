@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { fetchUser } from "../actions";
-
-class UserHeader extends Component {
-    componentDidMount() {
-        this.props.fetchUser(this.props.userId);
-    }
+export class UserHeader extends Component {
     render() {
         const { user } = this.props;
         if (!user) {
@@ -21,6 +16,4 @@ const mapStateToProps = (state, ownProps) => ({
     user: state.users.find((user) => user.id === ownProps.userId),
 });
 
-const mapDispatchToProps = { fetchUser };
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
